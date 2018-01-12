@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 [[ $TRACE ]] && set -x
-CACHE_TAR="/cache-$JOB_BASE_NAME.tar"
+CACHE_TAR="/cache/cache-$JOB_BASE_NAME.tar"
 FALLBACK_CACHE_TAR="/cache/cache-master.tar"
 
 store() {
