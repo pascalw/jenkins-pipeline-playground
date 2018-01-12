@@ -27,6 +27,7 @@ pipeline {
       steps {
         sh "ls -ls /tmp"
         sh "echo hello > /tmp/\$(date +'%Y%m%d%H%M%S')"
+        sh "ls -ls /tmp"
       }
     }
   }
