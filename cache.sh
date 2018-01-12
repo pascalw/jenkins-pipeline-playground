@@ -7,13 +7,17 @@ store() {
   tar cf "$CACHE_TAR" -C /tmp/ .
 }
 
+_restore() {
+  cd /tmp/ && rm -rf ./* && tar xf "$1"
+}
+
 restore() {
   if [ -e "$CACHE_TAR" ]; then
     echo "Restoring branch specific cache: $CACHE_TAR"
-    cd /tmp/ && rm -rf ./* && tar xf "$CACHE_TAR"
+    _restore "$CACHE_TAR"
   elif [ -e "$FALLBACK_CACHE_TAR" ]; then
     echo "Restoring master (fallback) cache: $FALLBACK_CACHE_TAR"
-    cd /tmp/ && rm -rf ./* && tar xf "$FALLBACK_CACHE_TAR"
+    _restore "$FALLBACK_CACHE_TAR"
   else
     echo "Found no cache to restore"
   fi
