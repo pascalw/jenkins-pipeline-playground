@@ -24,7 +24,7 @@ restore() {
 clean() {
   echo "Cleaning up old caches"
 
-  cd /tmp/
+  cd /cache/
   ls -tp | grep -v '/$' | tail -n +6 | xargs -I {} rm -- {}
 }
 
