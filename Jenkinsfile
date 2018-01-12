@@ -34,7 +34,7 @@ pipeline {
   post {
     always {
       script {
-        sh "tar cf ${cacheTar} -C /tmp/ ./*"
+        sh "tar cf ${cacheTar} -C /tmp/ './*'"
         support.restoreWorkspacePermissions()
       }
     }
