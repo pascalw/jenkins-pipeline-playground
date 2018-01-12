@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
-CACHE_TAR="/cache/cache-$JOB_BASE_NAME"
-FALLBACK_CACHE_TAR="/cache/cache-master"
+CACHE_TAR="/cache/cache-$JOB_BASE_NAME.tar"
+FALLBACK_CACHE_TAR="/cache/cache-master.tar"
 
 store() {
-  tar cf "$CACHE_TAR" -c /tmp/ .
+  tar cf "$CACHE_TAR" -C /tmp/ .
 }
 
 restore() {
