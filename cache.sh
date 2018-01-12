@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
-CACHE_TAR="/cache/cache-$JOB_BASE_NAME.tar"
+[[ $TRACE ]] && set -x
+CACHE_TAR="/cache-$JOB_BASE_NAME.tar"
 FALLBACK_CACHE_TAR="/cache/cache-master.tar"
 
 store() {
@@ -16,6 +17,15 @@ restore() {
   else
     echo "Found no cache to restore"
   fi
+
+  clean()
+}
+
+clean() {
+  echo "Cleaning up old caches"
+
+  cd /tmp/
+  ls -tp | grep -v '/$' | tail -n +6 | xargs -I {} rm -- {}
 }
 
 case "$1" in

@@ -17,7 +17,7 @@ pipeline {
   stages {
     stage("Setup") {
       steps {
-        sh "./cache.sh restore"
+        sh "TRACE=true ./cache.sh restore"
       }
     }
 
