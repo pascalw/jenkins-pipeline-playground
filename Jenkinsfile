@@ -1,8 +1,6 @@
 projectId = "jenkins-pipeline-playground"
 support.initializeCache(projectId)
 
-cacheTar = "/cache/cache-${JOB_BASE_NAME}.tar"
-
 pipeline {
   agent {
     dockerfile {
@@ -19,7 +17,7 @@ pipeline {
   stages {
     stage("Setup") {
       steps {
-        sh "[ -e ${cacheTar} ] && (cd /tmp/ && rm -f ./* && tar xf ${cacheTar}) || true"
+        sh "./cache.sh restore"
       }
     }
 
@@ -35,7 +33,7 @@ pipeline {
   post {
     always {
       script {
-        sh "tar cf ${cacheTar} -C /tmp/ ."
+        sh "./cache.sh store"
         support.restoreWorkspacePermissions()
       }
     }
