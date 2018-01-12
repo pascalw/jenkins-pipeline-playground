@@ -26,7 +26,7 @@ pipeline {
     stage("Test") {
       steps {
         sh "ls -ls /tmp"
-        sh "echo hello > /tmp/$(date +'%Y%m%d%H%M%S')"
+        sh "echo hello > /tmp/\$(date +'%Y%m%d%H%M%S')"
       }
     }
   }
