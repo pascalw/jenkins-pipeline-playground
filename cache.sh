@@ -18,7 +18,7 @@ restore() {
     echo "Found no cache to restore"
   fi
 
-  clean()
+  clean
 }
 
 clean() {
