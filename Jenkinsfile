@@ -16,6 +16,10 @@ pipeline {
 
   stages {
     stage("Setup") {
+      environment {
+        MY_ENV_VAR = 'something'
+      }
+
       steps {
         sh "bash ./printenv.sh"
         sh "TRACE=true ./cache.sh restore"
