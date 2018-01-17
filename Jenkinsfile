@@ -17,6 +17,7 @@ pipeline {
   stages {
     stage("Setup") {
       steps {
+        sh "bash ./printenv.sh"
         sh "TRACE=true ./cache.sh restore"
       }
     }
