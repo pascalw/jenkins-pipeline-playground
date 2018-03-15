@@ -13,10 +13,6 @@ pipeline {
   options {
     ansiColor("xterm")
   }
-  
-  triggers {
-    cron('H/5 * * * *')
-  }
 
   stages {
     stage("Setup") {
