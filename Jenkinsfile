@@ -16,22 +16,9 @@ pipeline {
   }
 
   stages {
-    stage("Setup") {
-      environment {
-        MY_ENV_VAR = 'something'
-      }
-
-      steps {
-        sh "bash ./printenv.sh"
-        sh "TRACE=true ./cache.sh restore"
-      }
-    }
-
     stage("Test") {
       steps {
-        sh "ls -ls /tmp"
-        sh "echo hello > /tmp/\$(date +'%Y%m%d%H%M%S')"
-        sh "ls -ls /tmp"
+        sh "ruby hello.rb"
       }
     }
   }
@@ -39,7 +26,6 @@ pipeline {
   post {
     always {
       script {
-        sh "./cache.sh store"
         support.restoreWorkspacePermissions()
       }
     }

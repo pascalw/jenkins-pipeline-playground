@@ -1,0 +1,13 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    hello-world (1.2.0)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  hello-world
+
+BUNDLED WITH
+   1.16.4
